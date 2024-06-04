@@ -1,0 +1,60 @@
+{% load static %}
+
+{% load mytags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Отчеты</title>
+<link rel="stylesheet" href="{% static 'css/reports.css' %}">
+</head>
+{% if user|check_permission:'add_generatedreports' == True %}
+<body>
+
+<div class="report-form">
+  <form action="" method="POST">
+    {% csrf_token %}
+
+      <label for="startDate">Дата с:</lable>
+      {{form.entry_date}}
+
+
+      <label for="endDate">Дата по:</lable>
+      {{form.end_date}}
+
+    <div class="report-options">
+      <label for="reportType">Название отчета</label>
+        {{form.name}}
+    </div>
+      <button id="generateReport" type="submit" action="download" >Сгенерировать</button>
+  </form>
+</div>
+
+<div class="previous-reports">
+  <h2>Предыдущие отчеты</h2>
+  <ul id="previousReports">
+    <table>
+      <tr>
+        <th>Название отчета</th>
+        <th>Дата</th>
+      </tr>
+      {% for entry in info %}
+      <tr>
+        <td>{{ entry.name }}</td>
+        <td>{{ entry.entry_date }} - {{ entry.end_date }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </ul>
+</div>
+
+</body>
+{% else %}
+  <h1>Dont have enough permissions</h1>
+  <p>Return to home page and use buttons</p>
+  <li><a href="/main">Home page</a></li>
+
+{% endif %}
+</html>

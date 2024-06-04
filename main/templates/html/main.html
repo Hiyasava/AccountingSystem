@@ -1,0 +1,47 @@
+{% load static %}
+
+{% load mytags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Accounting System</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  </head>
+  <body>
+    <header>
+      <h1>Accounting System</h1>
+      {% if request.user.is_authenticated %}
+        <nav>
+          <ul>
+            {% if user|check_permission:'add_generatedreports' == True %}
+              <li><a href="/reports">Reports</a></li>
+            {% endif %}
+            {% if user|check_permission:'add_generatedreports' == False %}
+              <li><a href="/projects">Мои проекты</a></li>
+              <li><a href="/hours">Мои часы</a></li>
+            {% endif %}
+            <li><a href="/logout">Выйти</a></li>
+          </ul>
+        </nav>
+      {% else %}
+        <h1>Dont have enough permissions</h1>
+      {% endif %}
+    </header>
+    {% csrf_token %}
+    <main>
+      {% block content %}
+      {% for entry in info %}
+        <div class="container">
+          {% if entry.image %}
+            <img src="{{entry.image.url}}">
+            <p>{{entry.text}}</p>
+        {% else %}
+            <p>{{entry.text}}</p>
+        {% endif %}
+        </div>
+      {% endfor %}  
+      {% endblock %}
+    </main>
+  </body>
+</html>

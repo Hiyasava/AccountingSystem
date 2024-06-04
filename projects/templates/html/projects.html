@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% if request.user.is_authenticated %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add & Show Info</title>
+        <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Ваши проекты</h1>
+            <h2>Info Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Проект</th>
+                        <th>Часы</th>
+                        <th>Статус</th>
+                        <th>Комаентарий</th>
+                        <th>Дедлайн</th>
+                    </tr>
+                </thead>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <tbody>
+                        {% for entry in info %}
+                        <tr>
+                            <td>{{ entry.projects }}</td>
+                            <td>{{ entry.hours }}</td>
+                            <td>{{ entry.state }}</td>
+                            <td>{{ entry.comment }}</td>
+                            <td> {{ entry.deadline }}</td>
+                          </tr>
+                          {% endfor %}
+                    </tbody>
+                </form>
+            </table>
+        </div>
+    </body>
+{% endif %}
+</html>

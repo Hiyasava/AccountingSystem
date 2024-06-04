@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% if request.user.is_authenticated %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add & Show Info</title>
+        <link rel="stylesheet" href="{% static 'css/hours.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Add Info</h1>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="name">Проект:</label>
+                    {{form.projects}}
+                <label for="hours">Часы::</label>
+                    {{form.hours}}
+                <label for="Date">Дата:</label>
+                {{form.date}}
+                <input type="submit" value="Добавить">
+            </form>
+            <h2>Info Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Время</th>
+                        <th>Проект</th>
+                    </tr>
+                </thead>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <tbody>
+                        {% for entry in info %}
+                        <tr>
+                            <td>{{ entry.date }}</td>
+                            <td>{{ entry.hours }}</td>
+                            <td>{{ entry.projects }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </form>
+            </table>
+        </div>
+    </body>
+{% endif %}
+</html>
