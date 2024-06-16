@@ -1,2 +1,2 @@
 # AccountingSystem
-# My project for diplom
+# My project 
