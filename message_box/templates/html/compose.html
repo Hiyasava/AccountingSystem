@@ -1,0 +1,11 @@
+<!-- Шапка страницы -->
+<header>
+    <h1>Новое сообщение</h1>
+  </header>
+  
+  <!-- Форма для отправки нового сообщения -->
+  <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Отправить">
+  </form>

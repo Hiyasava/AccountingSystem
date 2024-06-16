@@ -1,61 +1,212 @@
-body {
+/* Общие стили */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
-header {
-  background: #e91e63;
-  padding: 20px;
-  text-align: center;
-  
 }
 
-h1 {
-  margin: 0;
-  color: #fff;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f7f7f7;
 }
 
+/* Навигация */
+nav {
+
+    background-color: #f7f7f7;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    padding: 20px;
+
+}
 nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
-nav ul li {
-  display: inline-block;
-  margin-right: 20px;
+nav li {
+    margin-right: 20px;
 }
 
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
+nav a {
+    color: #337ab7;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 10px 20px; /* Добавляем отступы слева и справа */
+    border-radius: 10px; /* Добавляем скругление углов */
+    background-color: #f7f7f7; /* Добавляем светлый фон */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Добавляем тень */
 }
 
-nav ul li a:hover {
-  color: #ccc;
+nav a:hover {
+    color: #23527c;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Новости */
+.news {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-main {
-  padding: 40px;
+.news ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
-  
-.container {
-    text-align: left;
-    width: 350px;
-    height:300px;
-    background: #f1f1f1;
+
+.news li {
     margin-bottom: 20px;
-    margin-right: 7px;
-    float:left; 
-    justify-content: center;
-    overflow-y: scroll;
+    border: 3px solid rgb(204, 194, 194);
+    border-radius: 9px 9px 9px 9px;
 }
 
-img {
-  height: 50%;
-  width: 100%;
+.news img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 10px 10px;
 }
-text{
-  padding: 20px;
-  color: #ccc;
+
+.news h2 {
+    margin-top: 0;
+}
+
+.news p {
+    font-size: 16px;
+    color: #666;
+}
+
+.nav-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Добавляем отступы слева и справа */
+    border-radius: 10px;
+}
+
+.nav-group li {
+    margin-right: 30px;
+}
+
+.nav-group a {
+    font-size: 18px; /* Увеличиваем размер шрифта */
+    color: #337ab7;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 15px 30px; /* Увеличиваем отступы слева и справа */
+    border-radius: 10px;
+}
+
+.nav-group a:hover {
+    color: #23527c;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.nav-group a:hover {
+
+    color: #23527c;
+
+    background-color: #fff;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+/* Футер */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    clear: both;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+
+@media (max-width: 768px) {
+
+    nav {
+
+        height: 40px;
+
+        padding: 10px;
+
+    }
+
+    .nav-group {
+
+        flex-direction: column;
+
+        padding: 10px;
+
+    }
+
+    .nav-group li {
+
+        margin-right: 0;
+
+        margin-bottom: 10px;
+
+    }
+
+    .nav-group a {
+
+        font-size: 16px;
+
+        padding: 10px 20px;
+
+    }
+
+}
+
+
+/* Для экранов с шириной до 480px (мобильные устройства) */
+
+@media (max-width: 480px) {
+
+    nav {
+
+        height: 30px;
+
+        padding: 5px;
+
+    }
+
+    .nav-group {
+
+        flex-direction: column;
+
+        padding: 5px;
+
+    }
+
+    .nav-group li {
+
+        margin-right: 0;
+
+        margin-bottom: 5px;
+
+    }
+
+    .nav-group a {
+
+        font-size: 14px;
+
+        padding: 5px 15px;
+
+    }
+
 }

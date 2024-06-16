@@ -1,0 +1,180 @@
+/* Шапка страницы */
+
+header {
+  background-color: #f7f7f7;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+/* Список входящих сообщений */
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.2s ease;
+}
+
+li:hover {
+  background-color: #f2f2f2;
+}
+
+a {
+  text-decoration: none;
+  color: #337ab7;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #23527c;
+}
+
+span {
+  font-size: 14px;
+  color: #666;
+  margin-right: 10px;
+}
+
+span:last-child {
+  float: right;
+  margin-right: 0;
+}
+
+/* Empty list message */
+
+li:empty {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  border-bottom: none;
+}
+
+/* Адаптация для мобильных устройств */
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px;
+  }
+  header h1 {
+    font-size: 18px;
+  }
+  li {
+    padding: 10px;
+  }
+  span {
+    font-size: 12px;
+  }
+}
+
+/* Адаптация для планшетов */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  header {
+    padding: 20px;
+  }
+  header h1 {
+    font-size: 20px;
+  }
+  li {
+    padding: 12px;
+  }
+  span {
+    font-size: 13px;
+  }
+}
+
+/* Адаптация для компьютеров */
+
+@media (min-width: 1025px) {
+  header {
+    padding: 25px;
+  }
+  header h1 {
+    font-size: 24px;
+  }
+  li {
+    padding: 15px;
+  }
+  span {
+    font-size: 14px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #337ab7;
+}
+
+.sidebar a:hover {
+  color: #23527c;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Медиа-запросы для адаптации под разные устройства */
+
+/* Для экранов с шириной до 768px (планшеты и смартфоны) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+  }
+  .content {
+    padding: 10px;
+  }
+}
+
+/* Для экранов с шириной до 480px (смартфоны) */
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 10px;
+  }
+  .sidebar li {
+    margin-bottom: 5px;
+  }
+  .content {
+    padding: 5px;
+  }
+}

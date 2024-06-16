@@ -6,12 +6,12 @@ from users.models import User
 class UserLoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         'label': 'Логин',
-        'class':'input', 
+        'class':'input-field', 
         'placeholder':'Введите логин'
     }))
     password = forms.CharField(widget=forms.PasswordInput(attrs={
         'label': 'Пароль',
-        'class':'input', 
+        'class':'input-field', 
         'placeholder':'Введите пароль'
     }))
 

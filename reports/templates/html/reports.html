@@ -3,52 +3,46 @@
 {% load mytags %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Отчеты</title>
-<link rel="stylesheet" href="{% static 'css/reports.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генерация отчетов</title>
+    <link rel="stylesheet" href="{% static 'css/reports.css' %}">
 </head>
 {% if user|check_permission:'add_generatedreports' == True %}
 <body>
-
-<div class="report-form">
-  <form action="" method="POST">
-    {% csrf_token %}
-
-      <label for="startDate">Дата с:</lable>
-      {{form.entry_date}}
-
-
-      <label for="endDate">Дата по:</lable>
-      {{form.end_date}}
-
-    <div class="report-options">
-      <label for="reportType">Название отчета</label>
-        {{form.name}}
+    <div class="container">
+        <h1>Генерация отчетов</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="date-from">Дата с:</label>
+            {{form.entry_date}}
+            <label for="date-to">Дата по:</label>
+            {{form.end_date}}
+            <label for="report-name">Название отчета:</label>
+            {{form.name}}
+            <button id="generate-report">Сгенерировать</button>
+        </form>
+        <div class="report-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Название отчета</th>
+                        <th>Дата</th>
+                    </tr>
+                </thead>
+                <tbody id="report-table-body">
+                    {% for entry in info %}
+                        <tr>
+                            <td>{{ entry.name }}</td>
+                            <td>{{ entry.entry_date }} - {{ entry.end_date }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-      <button id="generateReport" type="submit" action="download" >Сгенерировать</button>
-  </form>
-</div>
-
-<div class="previous-reports">
-  <h2>Предыдущие отчеты</h2>
-  <ul id="previousReports">
-    <table>
-      <tr>
-        <th>Название отчета</th>
-        <th>Дата</th>
-      </tr>
-      {% for entry in info %}
-      <tr>
-        <td>{{ entry.name }}</td>
-        <td>{{ entry.entry_date }} - {{ entry.end_date }}</td>
-      </tr>
-      {% endfor %}
-    </table>
-  </ul>
-</div>
 
 </body>
 {% else %}

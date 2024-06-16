@@ -1,50 +1,46 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
-{% if request.user.is_authenticated %}
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Add & Show Info</title>
-        <link rel="stylesheet" href="{% static 'css/hours.css' %}">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Add Info</h1>
-            <form action="" method="POST">
-                {% csrf_token %}
-                <label for="name">Проект:</label>
-                    {{form.projects}}
-                <label for="hours">Часы::</label>
-                    {{form.hours}}
-                <label for="Date">Дата:</label>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рабочие часы</title>
+    <link rel="stylesheet" href="{% static 'css/hours.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Рабочие часы</h1>
+    </header>
+    <main>
+        <form action method="POST">
+            {% csrf_token %}
+            <label for="project">Проект:</label>
+                {{form.projects}}
+            <label for="hours">Часы:</label>
+                {{form.hours}}            
+            <label for="date">Дата:</label>
                 {{form.date}}
-                <input type="submit" value="Добавить">
-            </form>
-            <h2>Info Table</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Дата</th>
-                        <th>Время</th>
-                        <th>Проект</th>
-                    </tr>
-                </thead>
-                <form action="" method="POST">
-                    {% csrf_token %}
-                    <tbody>
-                        {% for entry in info %}
-                        <tr>
-                            <td>{{ entry.date }}</td>
-                            <td>{{ entry.hours }}</td>
-                            <td>{{ entry.projects }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </form>
-            </table>
-        </div>
-    </body>
-{% endif %}
+            <input type="submit" value="Добавить">
+        </form>
+        <table id="hours-table">
+            <thead>
+                <tr>
+                    <th>Проект</th>
+                    <th>Часы</th>
+                    <th>Дата</th>
+                </tr>
+            </thead>
+            <tbody id="hours-list">
+                {% for entry in info %}
+                <tr>
+                    <td>{{ entry.date }}</td>
+                    <td>{{ entry.hours }}</td>
+                    <td>{{ entry.projects }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
 </html>

@@ -1,84 +1,149 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: #f7f7f7;
     margin: 0;
     padding: 0;
 }
 
-.report-form {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+.container {
+    max-width: 800px;
+    margin: 40px auto;
     padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-weight: bold;
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 label {
-    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-button {
+input[type="date"], input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+button[type="button"] {
+    background-color: #007bff;
+    color: #fff;
     padding: 10px 20px;
-    background-color: #e91e63;
-    color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.previous-reports {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    overflow: hidden;
+button[type="button"]:hover {
+    background-color: #0069d9;
 }
 
-.report-options {
-    margin-bottom: 20px;
-}
-
-h2 {
-    color: #333;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 5px;
-}
-
-select {
-    padding: 5px;
+.report-table {
+    margin-top: 20px;
 }
 
 table {
-    width: 80%;
-    margin: 20px auto;
+    width: 100%;
     border-collapse: collapse;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 th, td {
+    padding: 10px;
     border: 1px solid #ddd;
-    padding: 15px;
-    text-align: center;
 }
 
 th {
-    background-color: #e91e63;
-    color: #fff;
-}
-
-tr:nth-child(even) {
-    background-color: #fafafa;
-}
-
-tr:hover {
     background-color: #f0f0f0;
 }
-.report-options {
-    padding: 20px;
+
+/* медиа-запросы для адаптации под разные девайсы */
+
+/* для мобильных устройств */
+@media only screen and (max-width: 768px) {
+   .container {
+        margin: 20px auto;
+        padding: 10px;
+    }
+    form {
+        flex-direction: column;
+    }
+    label {
+        margin-bottom: 5px;
+    }
+    input[type="date"], input[type="text"] {
+        margin-bottom: 10px;
+    }
+    button[type="button"] {
+        padding: 5px 10px;
+    }
+}
+
+/* для планшетов */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+   .container {
+        margin: 30px auto;
+        padding: 15px;
+    }
+    form {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    label {
+        margin-bottom: 10px;
+    }
+    input[type="date"], input[type="text"] {
+        margin-bottom: 15px;
+    }
+    button[type="button"] {
+        padding: 10px 20px;
+    }
+}
+
+/* для десктопов */
+@media only screen and (min-width: 1025px) {
+  .container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 30px;
+  }
+  form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  label {
+    margin-bottom: 15px;
+  }
+  input[type="date"], input[type="text"] {
+    margin-bottom: 20px;
+  }
+  button[type="button"] {
+    padding: 15px 30px;
+  }
+  .report-table {
+    margin-top: 30px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 15px;
+    border: 1px solid #ddd;
+  }
+  th {
+    background-color: #f0f0f0;
+  }
 }

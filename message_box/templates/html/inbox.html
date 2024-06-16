@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/inbox.css' %}">
+  <title>Входящие сообщения</title>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <ul>
+        <li><a href="/inbox" class="button">Входящие</a></li>
+        <li><a href="#" class="button">Исходящие</a></li>
+        <li><a href="#" class="button">Черновики</a></li>
+        <li><a href="/compose" class="button">Написать</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <header>
+        <h1>Входящие сообщения</h1>
+      </header>
+      
+      <!-- Список входящих сообщений -->
+      <ul>
+        {% for message in messages %}
+          <li>
+            <a href="{% url 'view_message' message.id %}">{{ message.label }}</a>
+            <span>{{ message.sender }}</span>
+            <span>{{ message.created_at }}</span>
+          </li>
+        {% empty %}
+          <li>Нет входящих сообщений</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

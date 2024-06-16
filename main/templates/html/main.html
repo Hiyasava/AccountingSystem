@@ -3,45 +3,52 @@
 {% load mytags %}
 
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Accounting System</title>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <h1>Accounting System</h1>
-      {% if request.user.is_authenticated %}
         <nav>
-          <ul>
-            {% if user|check_permission:'add_generatedreports' == True %}
-              <li><a href="/reports">Reports</a></li>
-            {% endif %}
-            {% if user|check_permission:'add_generatedreports' == False %}
-              <li><a href="/projects">Мои проекты</a></li>
-              <li><a href="/hours">Мои часы</a></li>
-            {% endif %}
-            <li><a href="/logout">Выйти</a></li>
+            <ul class="nav-group">
+                {% if user|check_permission:'add_generatedreports' == True %}
+                    <li><a href="/reports">Reports</a></li>
+                {% endif %}
+                {% if user|check_permission:'add_generatedreports' == False %}
+                    <li><a href="/projects">Мои проекты</a></li>
+                    <li><a href="/hours">Мои часы</a></li>
+                {% endif %}
+                <li><a href="/logout">Выйти</a></li>
           </ul>
         </nav>
-      {% else %}
-        <h1>Dont have enough permissions</h1>
-      {% endif %}
     </header>
     {% csrf_token %}
     <main>
-      {% block content %}
-      {% for entry in info %}
-        <div class="container">
-          {% if entry.image %}
-            <img src="{{entry.image.url}}">
-            <p>{{entry.text}}</p>
-        {% else %}
-            <p>{{entry.text}}</p>
-        {% endif %}
-        </div>
-      {% endfor %}  
-      {% endblock %}
+        <section class="news">
+            <h1>Новости</h1>
+            <ul>
+                {% block content %}
+                {% for entry in info %}
+                <li>
+                    {% if entry.image %}
+                        <img src="{{entry.image.url}}" alt="Новость 1">
+                        <h2>{{entry.title}}</h2>
+                        <p>{{entry.text}}</p>
+                    {% else %}
+                        <h2>{{entry.title}}</h2>
+                        <p>{{entry.text}}</p>
+                    {% endif %}
+                </li>
+                {% endfor %}  
+                {% endblock %}
+            </ul>
+        </section>
     </main>
-  </body>
+    <footer>
+        <p>&copy; 2023 ООО Спорина </p
+    </footer>
+</body>
 </html>

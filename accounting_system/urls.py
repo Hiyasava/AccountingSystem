@@ -22,6 +22,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from main.models import News
 
+from message_box import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('users.urls', namespace='users')), 
@@ -32,6 +34,12 @@ urlpatterns = [
     path('reports/',include('reports.urls', namespace='reports')),
 
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+
+    path('inbox/', views.inbox, name='inbox'),
+    path('outbox/', views.outbox, name='outbox'),
+    path('compose/', views.compose, name='compose'),
+    path('message/<pk>/', views.view_message, name='view_message'),
+    
 
 ]
 

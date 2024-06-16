@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/view_messages.css' %}">
+  <title>{{ message.label }}</title>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <ul>
+        <li><a href="/inbox" class="button">Входящие</a></li>
+        <li><a href="#" class="button">Исходящие</a></li>
+        <li><a href="#" class="button">Черновики</a></li>
+        <li><a href="/compose" class="button">Написать</a></li>
+      </ul>
+    </div>
+    <div class="message-container">
+      <header>
+        <h1>{{ message.label }}</h1>
+        <div class="meta">
+          <span>Отправитель: {{ message.sender }}</span>
+          <span>Дата отправки: {{ message.created_at }}</span>
+        </div>
+      </header>
+      <div class="message-body">
+        <p>{{ message.text }}</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

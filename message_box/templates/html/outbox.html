@@ -1,0 +1,17 @@
+<!-- Шапка страницы -->
+<header>
+    <h1>Исходящие сообщения</h1>
+  </header>
+  
+  <!-- Список исходящих сообщений -->
+  <ul>
+    {% for message in outbox %}
+      <li>
+        <a href="{% url 'view_message' message.id %}">{{ message.subject }}</a>
+        <span>{{ message.recipient }}</span>
+        <span>{{ message.sent_at }}</span>
+      </li>
+    {% empty %}
+      <li>Нет исходящих сообщений</li>
+    {% endfor %}
+  </ul>

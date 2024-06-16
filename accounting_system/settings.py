@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'hours',
     'projects',
     'reports',
+    'message_box',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,7 @@ TEMPLATES = [
             BASE_DIR / "main/templates",
             BASE_DIR / "index/templates",
             BASE_DIR / "projects/templates/html",
+            BASE_DIR / "message_box/templates/html",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -85,14 +87,10 @@ WSGI_APPLICATION = 'accounting_system.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.postgresql_psycopg2',
-'NAME': 'diplom',
-'USER': 'niko',
-'PASSWORD': '3003Nikto2004',
-'HOST': 'localhost',
-'PORT': ''
-}
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
