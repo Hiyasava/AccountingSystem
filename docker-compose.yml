@@ -1,0 +1,25 @@
+version: '3.8'
+
+
+services:
+  postgres-db:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: niko
+      POSTGRES_PASSWORD: 3003Nikto2004
+      POSTGRES_DB: diplom
+    ports: 
+      - "5433:5433"
+    command: -p 5433
+
+  accounting_system:
+    build: 
+      context: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres-db
+    command: ["bash", "-f", "-c", "sleep 5 && python manage.py makemigrations --merge --no-input && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+
+

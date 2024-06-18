@@ -1,11 +1,41 @@
-<!-- Шапка страницы -->
-<header>
-    <h1>Новое сообщение</h1>
-  </header>
-  
-  <!-- Форма для отправки нового сообщения -->
-  <form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Отправить">
-  </form>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/compose.css' %}">
+  <title>{{ message.label }}</title>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <ul>
+        <li><a href="/main" class="button">Домой</a></li>
+        <li><a href="/inbox" class="button">Входящие</a></li>
+        <li><a href="/outbox" class="button">Исходящие</a></li>
+        <li><a href="/compose" class="button">Написать</a></li>
+      </ul>
+    </div>
+    <div class="message-container">
+      <form method="post">
+        {% csrf_token %}
+          <div class="content">
+            <div class="dropdown">
+                <button class="dropdown-btn">Выберите адресата</button>
+                    {{form.recipient}}
+                </ul>
+            </div>
+            <h2 class="title">Новое сообщение</h2>
+                <a1 class="label">Тема:</a1>
+                {{form.label}}
+                <h1>Текст сообщения:</h1>
+                {{form.text}}
+            <input type="submit" value="Отправить">
+          </div>
+        </form>
+    </div>
+  </div>
+</body>
+</html>

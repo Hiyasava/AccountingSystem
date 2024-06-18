@@ -25,11 +25,11 @@
 }
 
 .projects-table tbody td:first-child {
-  font-weight: bold;
+  font-weight: initial;
 }
 
 .projects-table tbody td:last-child {
-  text-align: center;
+  text-align: left;
 }
 
 .projects-table tbody tr:hover {

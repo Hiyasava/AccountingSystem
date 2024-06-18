@@ -12,9 +12,9 @@
   <div class="container">
     <div class="sidebar">
       <ul>
+        <li><a href="/main" class="button">Домой</a></li>
         <li><a href="/inbox" class="button">Входящие</a></li>
-        <li><a href="#" class="button">Исходящие</a></li>
-        <li><a href="#" class="button">Черновики</a></li>
+        <li><a href="/outbox" class="button">Исходящие</a></li>
         <li><a href="/compose" class="button">Написать</a></li>
       </ul>
     </div>
@@ -27,7 +27,7 @@
         </div>
       </header>
       <div class="message-body">
-        <p>{{ message.text }}</p>
+        <p>{{ message.text| safe }}</p>
       </div>
     </div>
   </div>

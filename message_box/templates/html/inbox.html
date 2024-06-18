@@ -12,9 +12,9 @@
   <div class="container">
     <div class="sidebar">
       <ul>
+        <li><a href="/main" class="button">Домой</a></li>
         <li><a href="/inbox" class="button">Входящие</a></li>
-        <li><a href="#" class="button">Исходящие</a></li>
-        <li><a href="#" class="button">Черновики</a></li>
+        <li><a href="/outbox" class="button">Исходящие</a></li>
         <li><a href="/compose" class="button">Написать</a></li>
       </ul>
     </div>
@@ -27,9 +27,9 @@
       <ul>
         {% for message in messages %}
           <li>
-            <a href="{% url 'view_message' message.id %}">{{ message.label }}</a>
-            <span>{{ message.sender }}</span>
-            <span>{{ message.created_at }}</span>
+            <a href="{% url 'view_message' message.id %}"> Тема: {{ message.label }}</a>
+            <span>Отправитель: {{ message.sender }}</span>
+            <span>Дата: {{ message.created_at }}</span>
           </li>
         {% empty %}
           <li>Нет входящих сообщений</li>

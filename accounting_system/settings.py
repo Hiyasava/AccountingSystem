@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
+import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_summernote',
 
     'users',
     'main',
@@ -89,10 +92,17 @@ WSGI_APPLICATION = 'accounting_system.wsgi.application'
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+<<<<<<< HEAD
 'NAME': 'diplom',
 'USER': 'niko',
 'PASSWORD': '3003Nikto2004',
 'HOST': 'localhost',
+=======
+'NAME': '',
+'USER': '',
+'PASSWORD': '',
+'HOST': '',
+>>>>>>> 42d0474 (new commit)
 'PORT': ''
 }
 }
@@ -153,7 +163,6 @@ AUTH_USER_MODEL = 'users.User'
 LOGOUT_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login'
 
-import os
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # This is a tuple
 MEDIA_URL = '/media/'

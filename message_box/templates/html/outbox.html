@@ -1,17 +1,41 @@
-<!-- Шапка страницы -->
-<header>
-    <h1>Исходящие сообщения</h1>
-  </header>
-  
-  <!-- Список исходящих сообщений -->
-  <ul>
-    {% for message in outbox %}
-      <li>
-        <a href="{% url 'view_message' message.id %}">{{ message.subject }}</a>
-        <span>{{ message.recipient }}</span>
-        <span>{{ message.sent_at }}</span>
-      </li>
-    {% empty %}
-      <li>Нет исходящих сообщений</li>
-    {% endfor %}
-  </ul>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/inbox.css' %}">
+  <title>Входящие сообщения</title>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <ul>
+        <li><a href="/main" class="button">Домой</a></li>
+        <li><a href="/inbox" class="button">Входящие</a></li>
+        <li><a href="/outbox" class="button">Исходящие</a></li>
+        <li><a href="/compose" class="button">Написать</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <header>
+        <h1>Исходящие сообщения</h1>
+      </header>
+      
+      <!-- Список входящих сообщений -->
+      <ul>
+        {% for message in messages %}
+          <li>
+            <a href="{% url 'view_message' message.id %}"> Тема: {{ message.label }}</a>
+            <span>Отправитель: {{ message.sender }}</span>
+            <span>Дата: {{ message.created_at }}</span>
+          </li>
+        {% empty %}
+          <li>Нет входящих сообщений</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

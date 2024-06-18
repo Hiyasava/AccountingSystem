@@ -21,6 +21,7 @@
         <th>Дедлайн</th>
       </tr>
     </thead>
+    {% csrf_token %}
     <form action="" method="POST">
       <tbody>
         {% for entry in info %}

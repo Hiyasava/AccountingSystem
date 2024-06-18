@@ -33,6 +33,8 @@ urlpatterns = [
     path('projects/',include('projects.urls', namespace='projects')),
     path('reports/',include('reports.urls', namespace='reports')),
 
+    path('summernote/', include('django_summernote.urls')),
+
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 
     path('inbox/', views.inbox, name='inbox'),
