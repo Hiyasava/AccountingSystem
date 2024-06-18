@@ -1,6 +1,5 @@
 # AccountingSystem
-# My project 
-
+# Дипломный проект на тему разработка веб-приложения автоматизации рабочих проектов
 ![image](https://github.com/Hiyasava/AccountingSystem/assets/110004901/00903d3a-d2bc-447a-953b-51cbf3b3911d)
 ![image](https://github.com/Hiyasava/AccountingSystem/assets/110004901/abd2e870-723d-4dbc-850c-0043dc7b53bb)
 ![image](https://github.com/Hiyasava/AccountingSystem/assets/110004901/34e75455-f4aa-4141-82a7-2e4f0fdc05dc)
