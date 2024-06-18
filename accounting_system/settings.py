@@ -92,17 +92,10 @@ WSGI_APPLICATION = 'accounting_system.wsgi.application'
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-<<<<<<< HEAD
-'NAME': 'diplom',
-'USER': 'niko',
-'PASSWORD': '3003Nikto2004',
-'HOST': 'localhost',
-=======
 'NAME': '',
 'USER': '',
 'PASSWORD': '',
 'HOST': '',
->>>>>>> 42d0474 (new commit)
 'PORT': ''
 }
 }
