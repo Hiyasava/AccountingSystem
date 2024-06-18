@@ -6,3 +6,4 @@
 ![image](https://github.com/Hiyasava/AccountingSystem/assets/110004901/42f4b623-dcd2-40c9-999e-261f760e3883)
 ![image](https://github.com/Hiyasava/AccountingSystem/assets/110004901/02049b42-0db8-4c96-bada-8c841878946b)
 
+Django, docker, postgresql, summernote, html, css
