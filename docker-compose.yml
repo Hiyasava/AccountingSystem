@@ -6,9 +6,9 @@ services:
     image: postgres:latest
     container_name: postgres
     environment:
-      POSTGRES_USER: niko
-      POSTGRES_PASSWORD: 3003Nikto2004
-      POSTGRES_DB: diplom
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
+      POSTGRES_DB:
     ports: 
       - "5433:5433"
     command: -p 5433
